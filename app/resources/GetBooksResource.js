@@ -10,7 +10,7 @@
             new BookDAO('2', 'Book of Talent 13.37', 'Me again', 'Pseudoscience', '1997', 99, 'Book of the year! - New York Times x2')
         ]
 
-        books.forEach(a => console.log(a))
+        callback(JSON.stringify(books))
     };
 
 }());

@@ -17,7 +17,10 @@
           removeArrayItems(i)
         }
       }
+      
       LibraryDAO.writeXMLFile(lib)
+
+      if (callback) callback(lib)
     })
   };
 

@@ -16,11 +16,9 @@
     readXMLFile: function (callback) {
       fs.readFile(__dirname + '/../../books.xml', (e, content) => {
         xml2js.parseString(content, (e, res) => {
-          let books = []
-          res.catalog.book.forEach(element => {
-            books.push(new BookDAO(element['$'].id, element['title'], element['author'], element['genre'], element['publish_date'], element['price'], element['description']))
-          })
-          callback(books)
+          callback(res.catalog.book.map(e => 
+            new BookDAO(e['$'].id, e['title'], e['author'], e['genre'], e['publish_date'], e['price'], e['description'])
+          ))
         })
       })
     },
